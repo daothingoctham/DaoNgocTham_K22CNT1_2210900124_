@@ -1,0 +1,39 @@
+/* Thanh menu chính */
+nav {
+  background-color: #00a651; /* Màu xanh */
+  padding: 10px 0;
+}
+
+/* Danh sách menu */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Từng mục menu */
+nav ul li {
+  margin: 0 20px;
+}
+
+/* Liên kết */
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 30px;
+  transition: 0.3s;
+}
+
+/* Hiệu ứng hover */
+nav ul li a:hover {
+  color: #ffeb3b; /* Vàng nhạt khi rê chuột */
+}
+
+/* Biểu tượng trang chủ (nếu có dùng icon) */
+nav ul li:first-child a::before {
+  content: "🏠 ";
+}
