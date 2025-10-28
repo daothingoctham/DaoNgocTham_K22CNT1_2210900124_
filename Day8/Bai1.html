@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form - DOM Example</title>
+    <script>
+        function checkLogin() {
+            var userName = document.getElementById("userName");
+            var password = document.getElementById("password");
+
+            if (userName.value == "") {
+                alert("Bạn chưa nhập User Name");
+                userName.focus();
+            } else if (password.value == "") {
+                alert("Bạn chưa nhập Password");
+                password.focus();
+            } else {
+                alert("Đăng nhập thành công!");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form action="#" style="width:350px; margin:auto; margin-top:50px;">
+        <table width="100%">
+            <caption><h2>Login</h2></caption>
+            <tr>
+                <td>User Name:</td>
+                <td>
+                    <input type="text" name="userName" id="userName" placeholder="Nhập tên đăng nhập">
+                </td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td>
+                    <input type="password" name="password" id="password" placeholder="Nhập mật khẩu">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center;">
+                    <input type="button" value="Login" id="login" onclick="checkLogin()">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

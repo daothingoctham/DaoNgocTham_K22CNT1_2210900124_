@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 02 - Cảnh báo thân thiện</title>
+    <style>
+        label {
+            color: red;
+            font-size: 13px;
+        }
+    </style>
+    <script>
+        function checkLogin() {
+            var userName = document.getElementById("userName");
+            var password = document.getElementById("password");
+            var txtErrorUser = document.getElementById("txtErrorUserName");
+            var txtErrorPass = document.getElementById("txtErrorPass");
+
+            txtErrorUser.innerHTML = "";
+            txtErrorPass.innerHTML = "";
+
+            if (userName.value == "") {
+                txtErrorUser.innerHTML = "Vui lòng nhập User Name";
+                userName.focus();
+                return false;
+            }
+
+            if (password.value == "") {
+                txtErrorPass.innerHTML = "Vui lòng nhập Password";
+                password.focus();
+                return false;
+            }
+
+            alert("Đăng nhập thành công!");
+        }
+    </script>
+</head>
+<body>
+    <form action="#" style="width:350px; margin:auto; margin-top:50px;">
+        <table width="100%">
+            <caption><h2>Login</h2></caption>
+            <tr>
+                <td>User Name:</td>
+                <td>
+                    <input type="text" id="userName" placeholder="Nhập tên đăng nhập"><br>
+                    <label id="txtErrorUserName"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td>
+                    <input type="password" id="password" placeholder="Nhập mật khẩu"><br>
+                    <label id="txtErrorPass"></label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center;">
+                    <input type="button" value="Login" onclick="checkLogin()">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

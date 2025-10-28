@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm sản phẩm mới</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        .error {
+            color: red;
+            font-size: 13px;
+        }
+        button {
+            width: 100%;
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #1976D2;
+        }
+    </style>
+    <script>
+        function validateProduct() {
+            let name = document.getElementById("productName");
+            let price = document.getElementById("price");
+            let quantity = document.getElementById("quantity");
+
+            let errName = document.getElementById("errName");
+            let errPrice = document.getElementById("errPrice");
+            let errQty = document.getElementById("errQty");
+
+            errName.innerHTML = "";
+            errPrice.innerHTML = "";
+            errQty.innerHTML = "";
+
+            let valid = true;
+
+            if (name.value.trim() === "") {
+                errName.innerHTML = "Vui lòng nhập tên sản phẩm.";
+                valid = false;
+            }
+            if (price.value.trim() === "") {
+                errPrice.innerHTML = "Vui lòng nhập giá.";
+                valid = false;
+            } else if (isNaN(price.value) || price.value <= 0) {
+                errPrice.innerHTML = "Giá phải là số dương.";
+                valid = false;
+            }
+            if (quantity.value.trim() === "") {
+                errQty.innerHTML = "Vui lòng nhập số lượng.";
+                valid = false;
+            } else if (isNaN(quantity.value) || quantity.value <= 0) {
+                errQty.innerHTML = "Số lượng phải là số dương.";
+                valid = false;
+            }
+
+            if (valid) {
+                alert("Thêm sản phẩm thành công!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <h2>Thêm sản phẩm mới</h2>
+        <label>Tên sản phẩm</label>
+        <input type="text" id="productName" placeholder="Nhập tên sản phẩm">
+        <div id="errName" class="error"></div>
+
+        <label>Giá sản phẩm</label>
+        <input type="text" id="price" placeholder="Nhập giá sản phẩm">
+        <div id="errPrice" class="error"></div>
+
+        <label>Số lượng</label>
+        <input type="text" id="quantity" placeholder="Nhập số lượng">
+        <div id="errQty" class="error"></div>
+
+        <button type="button" onclick="validateProduct()">Thêm sản phẩm</button>
+    </form>
+</body>
+</html>

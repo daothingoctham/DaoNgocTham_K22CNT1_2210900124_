@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 03 - Máy tính đơn giản</title>
+    <style>
+        .calculator {
+            width: 200px;
+            margin: 50px auto;
+            border: 1px solid #888;
+            padding: 10px;
+        }
+        .calculator input[type="text"] {
+            width: 95%;
+            height: 40px;
+            text-align: right;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .calculator input[type="button"] {
+            width: 45px;
+            height: 45px;
+            margin: 2px;
+            font-size: 18px;
+        }
+    </style>
+    <script>
+        function insert(num) {
+            document.getElementById("result").value += num;
+        }
+        function clearResult() {
+            document.getElementById("result").value = "";
+        }
+        function calculate() {
+            try {
+                document.getElementById("result").value = eval(document.getElementById("result").value);
+            } catch {
+                document.getElementById("result").value = "Error";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="result" readonly><br>
+        <input type="button" value="1" onclick="insert('1')">
+        <input type="button" value="2" onclick="insert('2')">
+        <input type="button" value="3" onclick="insert('3')">
+        <input type="button" value="+" onclick="insert('+')"><br>
+        <input type="button" value="4" onclick="insert('4')">
+        <input type="button" value="5" onclick="insert('5')">
+        <input type="button" value="6" onclick="insert('6')">
+        <input type="button" value="-" onclick="insert('-')"><br>
+        <input type="button" value="7" onclick="insert('7')">
+        <input type="button" value="8" onclick="insert('8')">
+        <input type="button" value="9" onclick="insert('9')">
+        <input type="button" value="*" onclick="insert('*')"><br>
+        <input type="button" value="AC" onclick="clearResult()">
+        <input type="button" value="0" onclick="insert('0')">
+        <input type="button" value="=" onclick="calculate()">
+        <input type="button" value="/" onclick="insert('/')">
+    </div>
+</body>
+</html>
