@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Sản phẩm nội thất</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .section {
+      padding: 30px 80px;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .section-title h2 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #2a2960;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title a {
+      color: #0044ff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .product-list {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .product {
+      width: 230px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      background: #fff;
+      transition: 0.2s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .product-info h3 {
+      font-size: 15px;
+      margin: 10px 0 5px;
+    }
+
+    .stars {
+      color: #ccc;
+      font-size: 12px;
+    }
+
+    .price {
+      margin-top: 5px;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: gray;
+      font-size: 13px;
+      display: block;
+    }
+
+    .new-price {
+      color: #0a53be;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 30px 80px;
+    }
+  </style>
+</head>
+<body>
+  <div id="product-sections"></div>
+
+  <script>
+    fetch("products.json")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("product-sections");
+
+        for (const [key, products] of Object.entries(data)) {
+          const section = document.createElement("div");
+          section.className = "section";
+
+          const sectionTitle = {
+            phongkhach: "PHÒNG KHÁCH",
+            phongbep: "PHÒNG BẾP",
+            phongngu: "PHÒNG NGỦ"
+          }[key];
+
+          section.innerHTML = `
+            <div class="section-title">
+              <h2>${sectionTitle}</h2>
+              <a href="#">Xem tất cả</a>
+            </div>
+            <div class="product-list">
+              ${products.map(p => `
+                <div class="product">
+                  <img src="${p.image}" alt="${p.name}">
+                  <div class="product-info">
+                    <h3>${p.name}</h3>
+                    <div class="stars">★★★★★</div>
+                    <div class="price">
+                      <span class="old-price">${p.oldPrice} VND</span>
+                      <span class="new-price">${p.newPrice} VND</span>
+                    </div>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          `;
+
+          container.appendChild(section);
+          container.appendChild(document.createElement("hr"));
+        }
+      })
+      .catch(err => console.error("Lỗi đọc JSON:", err));
+  </script>
+</body>
+</html>

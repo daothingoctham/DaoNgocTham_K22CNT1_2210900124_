@@ -1,0 +1,62 @@
+{
+  "phongkhach": [
+    {
+      "name": "Bàn uống nước",
+      "oldPrice": "10,000,000",
+      "newPrice": "8,990,000",
+      "image": "images/Bàn uống nước.jpg"
+    },
+    {
+      "name": "Kệ TV",
+      "oldPrice": "5,000,000",
+      "newPrice": "4,560,000",
+      "image": "images/kê TV.jpg"
+    },
+    {
+      "name": "Kệ đồ",
+      "oldPrice": "6,000,000",
+      "newPrice": "4,990,000",
+      "image": "images/kệ đồ.jpg"
+    },
+    {
+      "name": "SOFA",
+      "oldPrice": "10,000,000",
+      "newPrice": "8,400,000",
+      "image": "images/sofaa.jpg"
+    }
+  ],
+  "phongbep": [
+    {
+      "name": "Bàn ăn",
+      "oldPrice": "12,000,000",
+      "newPrice": "10,550,000",
+      "image": "images/Bàn ăn.jpg"
+    },
+    {
+      "name": "Bàn trà",
+      "oldPrice": "4,000,000",
+      "newPrice": "3,600,000",
+      "image": "images/Bàn trà.jpg"
+    }
+  ],
+  "phongngu": [
+    {
+      "name": "Giường gỗ",
+      "oldPrice": "5,000,000",
+      "newPrice": "4,000,000",
+      "image": "images/Giường gỗ.jpg"
+    },
+    {
+      "name": "Tủ quần áo",
+      "oldPrice": "14,000,000",
+      "newPrice": "11,200,000",
+      "image": "images/tủ quần áo.jpg"
+    },
+    {
+      "name": "Giường châu Âu",
+      "oldPrice": "11,000,000",
+      "newPrice": "8,999,000",
+      "image": "images/Giường châu Âu.jpg"
+    }
+  ]
+}
